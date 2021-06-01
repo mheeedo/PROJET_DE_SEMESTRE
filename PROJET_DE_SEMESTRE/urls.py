@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from home import views as views_home
+from authentication import views as views_authentication
 
 
 
@@ -27,6 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('authentication/',include('authentication.urls')),
     path('home/',views_home.registr),
+    path('test/',views_authentication.about)
 ]
 
 

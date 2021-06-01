@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-
 def registr(request):
     return HttpResponse("register")
 
@@ -16,3 +15,7 @@ def logout(request):
 
 def not_define(request):
     return HttpResponse("unavailable")
+
+
+def about(request):
+    return render(request, 'blog/about.html', {'title': 'About'})

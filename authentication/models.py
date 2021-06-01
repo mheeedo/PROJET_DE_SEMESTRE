@@ -9,7 +9,7 @@ gender_choices =[
   ('F','female'),
 ]
 class Account(AbstractBaseUser):
-   
+    id_account = models.IntegerField(unique=True,primary_key=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=40, unique=True)
     gender = models.CharField(max_length=10,choices=gender_choices)

@@ -1,14 +1,19 @@
+
+from django.db.models.expressions import F
+
 from products.models import Product
 from django.shortcuts import render
-from django.views.generic import DetailView
 
-class ProductDetailView(DetailView):
-    model = Product
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        cart_obj, new_obj = Cart.objects.new_or_get(self.request)
-        context['cart'] = cart_obj
-        return context
+def add_counter(id,slug):
+    Product.objects.filter(id_product=id).update(times_visited=F('times_visited')+1)
 
-    template_name = "products/detail.html"
+
+def get_product_details(id,slug,request):
+   product = Product.objects.filter(id_product=id)
+   context = {'produit': product}
+   return render(request, 'index.html', context)
+
+        
+
+    
