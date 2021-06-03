@@ -35,20 +35,19 @@
             <div class="navbar-nav">
 
               {% if user.is_authenticated %}
-              <form class="form-inline">
-                <div class="md-form my-0">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                </div>
-              </form>
+              <form class="form-inline" method="POST" action="{%  url 'search' %}">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="searched">
+            </form>
               <a class="nav-item nav-link" href=""> <img src="https://www.pngplay.com/wp-content/uploads/3/Panier-PNG-Telecharger-Fond.png" alt="" width="30" height="30">  </a>
               <a class="nav-item nav-link" href="{% url 'profile' id_profile=user.id  %}">Profile</a>
               <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
             {% else %}
-            <form class="form-inline">
-              <div class="md-form my-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              </div>
-            </form>
+
+            <form class="form-inline" method="POST" action="{%  url 'search' %}">
+              {% csrf_token %}
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="searched">
+          </form>
               <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
               <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
             {% endif %}

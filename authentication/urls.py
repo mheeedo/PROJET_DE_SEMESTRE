@@ -11,5 +11,7 @@ urlpatterns = [
   path('register/',views.register,name='register'),
   path('profile/id_user=<slug:id_profile>',views.profile,name='profile'),
   
+  
+  
 ]
 

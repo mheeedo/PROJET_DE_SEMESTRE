@@ -22,14 +22,16 @@ from home import views as views_home
 from django.conf import settings
 from django.conf.urls.static import static
 from products import views as views_products
-
+from search import views as views_search
 
 urlpatterns = [
     path('',views_home.home_page),
     path('admin/', admin.site.urls),
     path('authentication/',include('authentication.urls')),
     path('home/',views_home.home_page,name='home'),
-    path('products/id_product=<slug:id_produit>',views_products.product_info,name='products')
+    path('products/id_product=<slug:id_produit>',views_products.product_info,name='products'),
+    path('search/',views_search.search,name='search'),
+    
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -6,7 +6,7 @@ from django.shortcuts import render
 
 
 def home_page(request):
-    product_suggestions = Product.objects.all().order_by('visited')[:6]
+    product_suggestions = Product.objects.all()
     return render(request,'home/home.html',{'product_suggestions': product_suggestions,})
 
     

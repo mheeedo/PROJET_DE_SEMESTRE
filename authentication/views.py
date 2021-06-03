@@ -27,4 +27,3 @@ def profile(request,id_profile):
     return render(request, 'authentication/profile.html',)
 
 
-
