@@ -19,17 +19,19 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from home import views as views_home
-from authentication import views as views_authentication
-
+from django.conf import settings
+from django.conf.urls.static import static
+from products import views as views_products
 
 
 urlpatterns = [
-    path('',views_home.registr),
+    path('',views_home.home_page),
     path('admin/', admin.site.urls),
     path('authentication/',include('authentication.urls')),
-    path('home/',views_home.registr),
-    path('test/',views_authentication.about)
-]
+    path('home/',views_home.home_page,name='home'),
+    path('products/id_product=<slug:id_produit>',views_products.product_info,name='products')
+    
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-handler404 = 'PROJET_DE_SEMESTRE.views.handler404'
+
