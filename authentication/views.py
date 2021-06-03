@@ -1,3 +1,4 @@
+from authentication.models import Profile
 from products.models import Product
 from authentication.forms import UserRegisterForm
 from django.shortcuts import redirect, render
@@ -22,7 +23,8 @@ def register(request):
 
 @login_required
 def profile(request,id_profile):
-    return render(request, 'authentication/profile.html')
+    
+    return render(request, 'authentication/profile.html',)
 
 
 

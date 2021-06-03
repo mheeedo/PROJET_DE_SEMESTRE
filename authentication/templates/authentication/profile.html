@@ -1,12 +1,16 @@
 {% extends "authentication/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
-      <div class="media">
+    <div class="content-section" style="text-align: center;">
+      <div class="media" >
  
         <div class="media-body">
-          <h2 class="account-heading"> welcome {{ user.username }}</h2>
-          <p class="text-secondary">{{ user.id }}</p>
+          <h2 class="account-heading" style="text-align: center;padding-bottom: 50px;"> welcome {{ user.username }}</h2>
+          <p class="text-secondary">first name : {{ user.first_name }}</p>
+          <p class="text-secondary">last name : {{ user.last_name }}</p>
+          <p class="text-secondary">email : {{ user.email }}</p>
+          <p class="text-secondary">password : change password</p>
+         
         </div>
       </div>
      

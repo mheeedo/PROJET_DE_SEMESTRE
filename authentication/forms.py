@@ -7,6 +7,7 @@ class UserRegisterForm(UserCreationForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
     email = forms.EmailField()
+    
 
     class Meta:
         model = User
