@@ -13,6 +13,6 @@ def update_count(myslug):
 
 def product_info(request,id_produit):
     update_count(id_produit)
-    product_suggestions = Product.objects.all().order_by('visited')[:2]
+    product_suggestions = Product.objects.all().order_by('visited')[:6]
     info = Product.objects.get(product_slug=id_produit)
     return render(request,'products/products.html',context={'Product': product_suggestions,'info': info,"data" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,1,1,1,1],})
